@@ -1,8 +1,9 @@
 class AgentsManager < Formula
   desc "Web UI for Claude Code, Codex, Grok and Antigravity CLI agents running in herdr"
   homepage "https://github.com/Eden-Sun/agents-manager"
-  version "0.1.0"
   license "MIT"
+
+  depends_on "herdr"
 
   on_macos do
     on_arm do
@@ -21,8 +22,6 @@ class AgentsManager < Formula
       sha256 "0b981bf8259460edadd2935b8c9b3ed24fdcefd823f0c09561211db3fbed627f"
     end
   end
-
-  depends_on "herdr"
 
   def install
     bin.install "agents-managerd"
