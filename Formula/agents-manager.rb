@@ -30,6 +30,8 @@ class AgentsManager < Formula
   service do
     run [opt_bin/"agents-managerd", "serve"]
     keep_alive true
+    # herdr 由 Homebrew 裝；agent CLI 常裝在 ~/.local/bin（claude）等使用者目錄
+    environment_variables PATH: "#{Dir.home}/.local/bin:#{std_service_path_env}"
     log_path var/"log/agents-manager.log"
     error_log_path var/"log/agents-manager.log"
   end
